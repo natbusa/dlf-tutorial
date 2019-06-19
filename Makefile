@@ -2,7 +2,7 @@ SHELL=/bin/bash
 
 PROJECT_ROOT = $(pwd)
 
-demo:
+test:
 	cd $(PROJECT_ROOT)/src && datalabframework run main.ipynb
 
 clean:

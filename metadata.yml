@@ -21,20 +21,36 @@ providers:
         service: file
         path: data
         format: csv
+        options:
+            header: True
+            inferSchema: True
 
     hdfs:
         service: hdfs
         hostname: hdfs-namenode
         path: /
         format: parquet
+        options:
+            header: True
+            inferSchema: True
+
+    test:
+        path: 'hdfs://hdfs-namenode:8020/wanna/dance/with/somebody'
+        format: delta
+        options:
+            overwrite_option: a
+            b: True
 
     minio:
         service: minio
         hostname: minio
         username: minio-username
         password: "{{ env('MINIO_USER_PASSWORD') }}"
-        path: /data
+        path: data
         format: parquet
+        options:
+            header: True
+            inferSchema: True
 
     pagila:
         service: postgres
@@ -64,10 +80,13 @@ resources:
     ascombe:
         path: ascombe.csv
         provider: localfs
-        options:
-            header: True
-            inferSchema: True
 
+    r_test:
+        path: abc.avro
+        options:
+            overwrite_option: overwritten
+            a: True
+            
     correlation:
         path: correlation.csv
         provider: localfs
