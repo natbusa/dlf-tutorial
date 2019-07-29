@@ -76,6 +76,22 @@ providers:
         path: School
         format: jdbc
 
+    human_resources:
+        service: oracle
+        hostname: oracle
+        username: hr
+        password: "{{ env('ORACLE_USER_PASSWORD') }}"
+        path: ORCLCDB.localdomain
+        format: jdbc
+
+    taxes:
+        service: clickhouse
+        hostname: clickhouse
+        username: default
+        password: "{{ env('CLICKHOUSE_USER_PASSWORD') }}"
+        path: tax_bills
+        format: jdbc
+
 resources:
     ascombe:
         path: ascombe.csv
