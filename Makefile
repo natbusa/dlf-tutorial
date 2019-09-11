@@ -3,7 +3,7 @@ SHELL=/bin/bash
 PROJECT_ROOT = $(pwd)
 
 test:
-	cd $(PROJECT_ROOT)/src && datalabframework run main.ipynb
+	cd $(PROJECT_ROOT)/src && dataloof run main.ipynb
 
 clean:
 	find $(PROJECT_ROOT) -name '.ipynb_checkpoints' -exec rm -rf  {} +
